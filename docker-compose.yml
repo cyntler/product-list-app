@@ -1,0 +1,28 @@
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+  backend:
+    build: ./backend
+    env_file: .env
+    ports:
+      - $BACKEND_PORT:$BACKEND_PORT
+    volumes:
+      - ./backend:/backend
+    depends_on:
+      mongo:
+        condition: service_started
+  frontend:
+    build: ./frontend
+    env_file: .env
+    ports:
+      - $FRONTEND_PORT:$FRONTEND_PORT
+    volumes:
+      - ./frontend:/frontend
+    depends_on:
+      backend:
+        condition: service_started
+
+volumes:
+  mongodata:
