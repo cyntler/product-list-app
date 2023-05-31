@@ -8,4 +8,4 @@ RUN npm i
 COPY . .
 
 EXPOSE $BACKEND_PORT
-CMD ["npm", "start"]
+CMD npm rebuild esbuild && npm start

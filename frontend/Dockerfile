@@ -4,7 +4,7 @@ ENV FRONTEND_PORT 3001
 
 WORKDIR /frontend
 COPY package*.json .
-RUN npm i && npm i -D @swc/core
+RUN npm i
 COPY . .
 
 EXPOSE $FRONTEND_PORT

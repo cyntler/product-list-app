@@ -10,6 +10,7 @@ services:
       - $BACKEND_PORT:$BACKEND_PORT
     volumes:
       - ./backend:/backend
+      - ./shared:/shared
     depends_on:
       mongo:
         condition: service_started
@@ -20,6 +21,7 @@ services:
       - $FRONTEND_PORT:$FRONTEND_PORT
     volumes:
       - ./frontend:/frontend
+      - ./shared:/shared
     depends_on:
       backend:
         condition: service_started
