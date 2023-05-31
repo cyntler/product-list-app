@@ -1,6 +1,8 @@
 import express from 'express';
 import { connect, disconnect } from 'mongoose';
 
+import { productRouter } from './routers/productRouter';
+
 const port = process.env.BACKEND_PORT || 3000;
 const app = express();
 
@@ -13,6 +15,8 @@ try {
   process.exit(1);
 }
 
+app.use('/v1/products', productRouter);
+
 const server = app.listen(port, () =>
   console.log(`backend service is listening on ${port}...`),
 );
@@ -20,3 +24,9 @@ const server = app.listen(port, () =>
 server.on('close', () => {
   disconnect();
 });
+
+if (import.meta.hot) {
+  import.meta.hot.accept(async () => {
+    server.close();
+  });
+}
