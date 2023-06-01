@@ -1,3 +1,10 @@
-import { Container } from './App.style';
+import { RouterProvider } from 'react-router-dom';
 
-export const App = () => <Container>app</Container>;
+import { Container } from './App.style';
+import { router } from '../../router';
+
+export const App = () => (
+  <Container>
+    <RouterProvider router={router} />
+  </Container>
+);
