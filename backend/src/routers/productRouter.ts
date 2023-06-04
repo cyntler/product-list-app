@@ -1,15 +1,17 @@
 import { Router } from 'express';
 
 import {
-  createProduct,
+  addProduct,
   deleteProduct,
-  editProduct,
+  updateProduct,
+  getProduct,
   getProducts,
 } from '../resolvers/productResolver';
 
 export const productRouter = Router();
 
 productRouter.get('/', getProducts);
-productRouter.post('/', createProduct);
-productRouter.patch('/', editProduct);
-productRouter.delete('/', deleteProduct);
+productRouter.get('/:id', getProduct);
+productRouter.post('/', addProduct);
+productRouter.put('/:id', updateProduct);
+productRouter.delete('/:id', deleteProduct);
