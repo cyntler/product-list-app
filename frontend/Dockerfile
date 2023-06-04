@@ -6,6 +6,7 @@ WORKDIR /frontend
 COPY package*.json .
 RUN npm i
 COPY . .
+RUN npm run lint
 
 EXPOSE $FRONTEND_PORT
 CMD npm i -D @swc/core && npm rebuild esbuild && npm start
