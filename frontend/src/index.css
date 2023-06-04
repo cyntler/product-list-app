@@ -6,6 +6,7 @@
   color: #000000;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -15,4 +16,21 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: Lato, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+  :root {
+    font-size: 16px;
+  }
 }
