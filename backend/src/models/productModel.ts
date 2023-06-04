@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, deleteModel, model, modelNames } from 'mongoose';
 
 import { Product, ProductCategory } from '../../../shared/models';
 
@@ -21,6 +21,10 @@ export const productSchema = new Schema<Product>({
   productionDate: {
     type: String,
     required: [true, 'The production date is required'],
+    validate: {
+      validator: (value: string) => !isNaN(Date.parse(value)),
+      message: 'The production date is not valid',
+    },
   },
   category: {
     type: String,
@@ -32,5 +36,9 @@ export const productSchema = new Schema<Product>({
     maxlength: [2000, 'The description max length is 2000'],
   },
 });
+
+if (modelNames().includes('Product')) {
+  deleteModel('Product');
+}
 
 export const ProductModel = model('Product', productSchema);
