@@ -1,0 +1,1 @@
+export { ScreenHeading } from './ScreenHeading';
