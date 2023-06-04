@@ -1,0 +1,1 @@
+export { ProductDetailsDrawer } from './ProductDetailsDrawer';
