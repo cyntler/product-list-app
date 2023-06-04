@@ -8,6 +8,8 @@ services:
     env_file: .env
     ports:
       - $BACKEND_PORT:$BACKEND_PORT
+    links:
+      - mongo
     volumes:
       - ./backend:/backend
       - ./shared:/shared
@@ -19,6 +21,8 @@ services:
     env_file: .env
     ports:
       - $FRONTEND_PORT:$FRONTEND_PORT
+    links:
+      - backend
     volumes:
       - ./frontend:/frontend
       - ./shared:/shared
