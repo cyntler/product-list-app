@@ -9,6 +9,7 @@ A docker-compose.yml file was created for the project, which allows you to build
 Simply:
 
 ```sh
+sudo chmod +x start-infrastructure.sh
 ./start-infrastructure.sh
 ```
 
