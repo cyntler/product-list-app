@@ -12,6 +12,4 @@ Simply:
 ./start-infrastructure.sh
 ```
 
-After that, after initialization, the front-end application should be served at localhost, on 3001 port.
-
-[http://localhost:3001](http://localhost:3001)
+After that, after initialization, the front-end application should be served at localhost, on 3001 port: [http://localhost:3001](http://localhost:3001).
